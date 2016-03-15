@@ -189,6 +189,19 @@ require 'erb'
   renderer = ERB.new(simple_template)
   puts output = renderer.result()
 
+  N.B:
+
+  <%= @name %> This is an expression (printed to your screen)
+
+  <% @name %>  This is a scriptlet   (executed, not printed)
+
+  <%# This is just a comment %>
+
+in context:
+
+  <% for @item in @shopping_list %>
+    <%= @item %>
+  <% end %>
 
 # 11: Sinatra: Keeping views clean --------------------------
 
@@ -203,12 +216,31 @@ require 'erb'
   Ruby expressions, which, according to SoC, really belong in a separate .rb file.
 
 -  "Move the expression for generating a random name into the route for your view,
-   assigning  it to an instance variable": 
+   assigning  it to an instance variable":
 
   get '/cat' do
     @name = ["Amigo", "Oscar", "Viking"].sample
     erb(:cat)
   end
 
+  - We've pushed the 'heavy lifting' of name randomisation a bit 'further down
+    the stack'.
 
-# 12:
+# 12: Sinatra: Introducing params --------------------------
+
+* Use params to extract information from a request
+
+  - We can use $ p params   to reveal our parameters in terminal before they are
+    run.
+
+* Send params from a client a query string
+
+  - By appending our query string with new param 'key=value' pairs we provide
+    information that will influence the output of our server (website in this case).
+
+
+# 13: Sinatra: Using forms  --------------------------
+
+* Use a form element to construct a query string
+
+* Explain the relationship between name, value, query strings, and params

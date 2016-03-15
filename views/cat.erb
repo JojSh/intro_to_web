@@ -1,4 +1,17 @@
+
+
 <h1>Hi my name is <%= @name %></h1>
+
+<% if @name == nil %>
+
+<form action='/named-cat'>
+
+  <input type='text' name='number'/>
+  <input type='text' name='name'/>
+  <input type='submit' value='DO NOT PRESS' />
+
+
+</form> <% end %>
 
 <div style='border: 3px dashed red'>
 <img src='http://bit.ly/1eze8aE'>
