@@ -75,7 +75,7 @@ in:   http://www.example.com/home?name=Bob&age=21
 
 * GET vs POST requests
 
-- GET fetches data, whereas POST creates it.
+- GET asks for a server resource data, whereas POST asks to modify a resource.
 
 - POST is generally safer when dealing with sensitive data.
 
@@ -244,3 +244,36 @@ in context:
 * Use a form element to construct a query string
 
 * Explain the relationship between name, value, query strings, and params
+
+<% if @name == nil %>  <!-- code after this conditional will run if true -->
+
+<form action='/named-cat'>  <!-- identifies URL of code to be affected -->
+
+  <input type='text' name='name'/>  <!-- creates text box, saves input to name -->
+  <input type='submit' value='Submit' />  <!-- submit creates a save/reload button and whatever is assigned to value= will be the wording on the button -->
+
+</form> <% end %>
+
+
+# 14: Sinatra: POSTed params --------------------------
+
+* use POST request method:
+
+  <form action='/named-cat' method="post"> </form>
+
+  - In this way we add a 'method' attribute to the form element and set it to "post"
+
+* Write a route that handles a POST request
+
+  - Then in our app.rb file we need to prepend our '/named-cat' route with 'post',
+    replacing 'get' :
+
+      post '/named-cat' do
+
+
+# 15: Sinatra: Using the Chrome DevTools -----------------------
+
+* Using Chrome DevTools to investigate network requests
+
+
+  - alt+cmd+i  to open DevTools in Chrome

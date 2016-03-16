@@ -3,13 +3,7 @@ require 'shotgun'
 
 set :session_secret, 'super secret'
 
-# get '/' do
-#   @name = params[:name]
-#   erb(:index)
-# end
-
-get '/' do
-  @name = params[:name]
+get '/cat-form' do
   erb(:cat_form)
 end
 
